@@ -5,12 +5,100 @@ import Heading from "../utility/Text/heading";
 import Paragraph from "../utility/Paragraph/Paragraph";
 import { FaCaretLeft } from "react-icons/fa6";
 import { FaCaretRight } from "react-icons/fa6";
-import { Project, ProjectsResponse } from "@/APIcalling/interface/project";
 
-const Portfolio = ({ projectData }: { projectData: ProjectsResponse }) => {
+// Define the Project interface
+interface Project {
+    id: number;
+    projectName: string;
+    projectType: string;
+    projectImages: string[];
+    createdAt: string;
+    updatedAt: string;
+}
+
+// Define the ProjectsResponse interface
+interface ProjectsResponse {
+    message: string;
+    projects: Project[];
+}
+
+const Portfolio = () => {
+    // Hardcoded project data
+    const projectData: ProjectsResponse = {
+        message: "Projects retrieved successfully",
+        projects: [
+            {
+                id: 1,
+                projectName: "E-commerce Website",
+                projectType: "Web Development",
+                projectImages: [
+                    "https://via.placeholder.com/600x400",
+                    "https://via.placeholder.com/600x400/FF0000",
+                    "https://via.placeholder.com/600x400/00FF00"
+                ],
+                createdAt: "2025-03-08T21:03:42.000Z",
+                updatedAt: "2025-03-08T21:03:42.000Z"
+            },
+            {
+                id: 2,
+                projectName: "Mobile App UI",
+                projectType: "UI/UX Design",
+                projectImages: [
+                    "https://via.placeholder.com/600x400/0000FF",
+                    "https://via.placeholder.com/600x400/FFFF00"
+                ],
+                createdAt: "2025-03-08T21:03:42.000Z",
+                updatedAt: "2025-03-08T21:03:42.000Z"
+            },
+            {
+                id: 3,
+                projectName: "Portfolio Website",
+                projectType: "Web Development",
+                projectImages: [
+                    "https://via.placeholder.com/600x400/00FFFF",
+                    "https://via.placeholder.com/600x400/FF00FF"
+                ],
+                createdAt: "2025-03-08T21:03:42.000Z",
+                updatedAt: "2025-03-08T21:03:42.000Z"
+            },
+            {
+                id: 4,
+                projectName: "Social Media Dashboard",
+                projectType: "Web Development",
+                projectImages: [
+                    "https://via.placeholder.com/600x400/FFA500",
+                    "https://via.placeholder.com/600x400/800080"
+                ],
+                createdAt: "2025-03-08T21:03:42.000Z",
+                updatedAt: "2025-03-08T21:03:42.000Z"
+            },
+            {
+                id: 5,
+                projectName: "Landing Page Design",
+                projectType: "UI/UX Design",
+                projectImages: [
+                    "https://via.placeholder.com/600x400/008000",
+                    "https://via.placeholder.com/600x400/000080"
+                ],
+                createdAt: "2025-03-08T21:03:42.000Z",
+                updatedAt: "2025-03-08T21:03:42.000Z"
+            },
+            {
+                id: 6,
+                projectName: "Blog Platform",
+                projectType: "Web Development",
+                projectImages: [
+                    "https://via.placeholder.com/600x400/FFC0CB",
+                    "https://via.placeholder.com/600x400/FF4500"
+                ],
+                createdAt: "2025-03-08T21:03:42.000Z",
+                updatedAt: "2025-03-08T21:03:42.000Z"
+            }
+        ]
+    };
+
     const [modalData, setModalData] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
-
     const [activeCategory, setActiveCategory] = useState("Show All");
     const [projectToShowOnModal, setProjectToShowOnModal] = useState<Project[]>([]);
 
@@ -21,7 +109,6 @@ const Portfolio = ({ projectData }: { projectData: ProjectsResponse }) => {
             categories.push(project?.projectType);
         }
     }
-
 
     const filteredData =
         activeCategory === "Show All" ? projectData?.projects : projectData?.projects.filter(item => item.projectType === activeCategory);
@@ -48,10 +135,16 @@ const Portfolio = ({ projectData }: { projectData: ProjectsResponse }) => {
             {/* Categories */}
             <div className="grid grid-cols-3 gap-y-4 md:gap-y-0 md:flex gap-x-6 mb-6">
                 {categories.map((category) => (
-                    <p onClick={() => setActiveCategory(category)} key={category} className={`cursor-pointer pb-1 transition-all font-semibold ${activeCategory === category
-                        ? "text-[#448C74] border-b-4 border-[#448C74]"
-                        : "text-gray-500"
-                        }`}>{category}</p>
+                    <p
+                        onClick={() => setActiveCategory(category)}
+                        key={category}
+                        className={`cursor-pointer pb-1 transition-all font-semibold ${activeCategory === category
+                            ? "text-[#448C74] border-b-4 border-[#448C74]"
+                            : "text-gray-500"
+                            }`}
+                    >
+                        {category}
+                    </p>
                 ))}
             </div>
 
@@ -73,7 +166,10 @@ const Portfolio = ({ projectData }: { projectData: ProjectsResponse }) => {
                             />
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <button onClick={() => handleOpenModal([item])} className="p-4 rounded-full font-semibold bg-[#448C74] text-white transition">
+                                <button
+                                    onClick={() => handleOpenModal([item])}
+                                    className="p-4 rounded-full font-semibold bg-[#448C74] text-white transition"
+                                >
                                     <span><GoArrowUpRight size={25}></GoArrowUpRight></span>
                                 </button>
                             </div>
@@ -99,9 +195,8 @@ const Portfolio = ({ projectData }: { projectData: ProjectsResponse }) => {
                             <button
                                 className="text-white rounded-full hover:text-gray-300"
                                 onClick={() => {
-                                    // Handle left arrow click
                                     if (currentIndex > 0) {
-                                        setCurrentIndex(currentIndex - 1); // Decrease the index to go to the previous image
+                                        setCurrentIndex(currentIndex - 1);
                                     }
                                 }}
                             >
@@ -140,19 +235,16 @@ const Portfolio = ({ projectData }: { projectData: ProjectsResponse }) => {
                             <button
                                 className="text-white rounded-full hover:text-gray-300"
                                 onClick={() => {
-                                    // Handle right arrow click
                                     if (currentIndex < projectToShowOnModal[0]?.projectImages.length - 1) {
-                                        setCurrentIndex(currentIndex + 1); // Increase the index to go to the next image
+                                        setCurrentIndex(currentIndex + 1);
                                     }
                                 }}
                             >
                                 <FaCaretRight size={50} />
                             </button>
                         </div>
-
                     </div>
                 </div>
-
             )}
         </div>
     );

@@ -45,20 +45,19 @@ export default function LandingHome({ data, serviceData, educationData, skillsDa
       duration: 700,
       once: false,
     });
-
-    // Start the slide-up animation after 3 seconds
     const timer = setTimeout(() => {
       setIsSlidingUp(true);
       setTimeout(() => {
         setShowScreen(false);
-      }, 500); 
-    }, 3000);
+      }, 500);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
       AOS.refresh();
     };
   }, []);
+  
  
   return (
     <div>
@@ -75,43 +74,43 @@ export default function LandingHome({ data, serviceData, educationData, skillsDa
 
       {/* Main Content */}
       <div className="flex justify-center md:mt-28 mt-12" id="about-us">
-        <AboutSection data={data} />
+        <AboutSection />
       </div>
   
       <div className="flex justify-center" id="service-section">
-        <ServiceSection serviceData={serviceData}/>
+        <ServiceSection/>
       </div>
 
       <div className="flex justify-center" id="education-and-experience">
-        <EducationAndExperience educationData={educationData} experienceData={experienceData} />
+        <EducationAndExperience />
       </div>
 
       <div className="flex justify-center" id="skills">
-        <Skills skillsData={skillsData}/>
+        <Skills />
       </div>
 
       <div className="flex justify-center pb-8" id="works">
-        <Portfolio projectData={projectData} />
+        <Portfolio />
       </div>
 
       <div className="flex justify-center pb-8" id="pricing">
-        <Pricing pricingData={pricingData}/>
+        <Pricing/>
       </div>
 
       <div className="flex justify-center pb-8 px-2 md:px-0" id="pricing">
-       <Testimonials clientData={clientData}></Testimonials>
+       <Testimonials></Testimonials>
       </div>
 
       <div className="flex justify-center pb-8" id="working-company">
         <WorkingCompany />
       </div>
 
-      <div className="flex justify-center pb-8 px-2 md:px-0" id="stories">
+      {/* <div className="flex justify-center pb-8 px-2 md:px-0" id="stories">
         <Stories storiesData={storiesData} />
-      </div>
+      </div> */}
 
       <div className="flex justify-center pb-8" id="contact">
-        <ContactSection data={data} />
+        <ContactSection />
       </div>
 
       <div className="flex justify-center pb-8" id="lets-talk">

@@ -9,48 +9,45 @@ import { useState } from "react";
 import { BASE_URL } from "@/constants/routeConstant";
 import { UserResponse } from "@/APIcalling/interface/user-information";
 
-const ContactSection = ({ data }: { data: UserResponse }) => {
-    console.log(data);
+const ContactSection = () => {
     const [clientName, setClientName] = useState('');
     const [clientEmail, setClientEmail] = useState('');
     const [clientMessage, setClientMessage] = useState('');
     const [isLoading, setIsloading] = useState(false);
 
-    const handleSendMessage = async () => {
-        const clientPayload = {
-            clientName: clientName,
-            clientEmail: clientEmail,
-            clientMessage: clientMessage,
-        };
-        if (clientEmail && clientName && clientMessage) {
-            setIsloading(true);
-            try {
-                const response = await fetch(BASE_URL + "/inbox/upload-message", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(clientPayload),
-                });
+    // const handleSendMessage = async () => {
+    //     const clientPayload = {
+    //         clientName: clientName,
+    //         clientEmail: clientEmail,
+    //         clientMessage: clientMessage,
+    //     };
+    //     if (clientEmail && clientName && clientMessage) {
+    //         setIsloading(true);
+    //         try {
+    //             const response = await fetch(BASE_URL + "/inbox/upload-message", {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(clientPayload),
+    //             });
 
-                const data = await response.json();
+    //             const data = await response.json();
 
-                console.log(data);
+    //             if (data) {
+    //                 setIsloading(false);
+    //             } else {
+    //                 console.error('Error sending message:', data.message);
+    //                 // Handle error (e.g., show an error message)
+    //             }
+    //         } catch (error) {
+    //             console.error('Error sending message:', error);
+    //         } finally {
+    //             setIsloading(false);
+    //         }
+    //     }
 
-                if (data) {
-                    setIsloading(false);
-                } else {
-                    console.error('Error sending message:', data.message);
-                    // Handle error (e.g., show an error message)
-                }
-            } catch (error) {
-                console.error('Error sending message:', error);
-            } finally {
-                setIsloading(false);
-            }
-        }
-
-    };
+    // };
 
     return (
         <div className="py-12 max-w-screen-xl w-full">
@@ -62,21 +59,21 @@ const ContactSection = ({ data }: { data: UserResponse }) => {
                     <div className="space-y-6 border border-gray-300 rounded-xl py-10 px-8 md:w-1/3 w-full">
                         <div className="space-y-2">
                             <span className="w-[20px] h-[20px] text-[#448C74]"><RiMapPinLine size={20}></RiMapPinLine></span>
-                            <Heading className="text-xl text-gray-600">Our Office:</Heading>
-                            <Paragraph className="text-gray-600">{data?.user?.officeAddress}</Paragraph>
+                            <Heading className="text-xl text-gray-600">My Address:</Heading>
+                            <Paragraph className="text-gray-600">Khulna, Bangladesh</Paragraph>
                         </div>
 
                         <div className="space-y-2">
                             <span className="w-[20px] h-[20px] text-[#448C74]"><FiPhone size={20}></FiPhone></span>
                             <Heading className="text-xl text-gray-600">Contact number:</Heading>
                             <h1 className="text-xl text-gray-600"></h1>
-                            <Paragraph className="text-gray-600">{data?.user?.contactNo}</Paragraph>
+                            <Paragraph className="text-gray-600">+8801761043883</Paragraph>
                         </div>
 
                         <div className="space-y-2">
                             <span className="w-[20px] h-[20px] text-[#448C74]"><CiMail size={20}></CiMail></span>
                             <Heading className="text-xl text-gray-600">Email us:</Heading>
-                            <Paragraph className="text-gray-600">{data?.user?.businessEmail}</Paragraph>
+                            <Paragraph className="text-gray-600">shakidul31@gmail.com</Paragraph>
                         </div>
                     </div>
 
@@ -109,7 +106,7 @@ const ContactSection = ({ data }: { data: UserResponse }) => {
                         </div>
 
                         <button
-                            onClick={handleSendMessage}
+                            // onClick={handleSendMessage}
                             className="px-4 py-2 rounded-lg shadow bg-[#448C74] border hover:bg-black text-white flex gap-x-2 items-center w-[200px] h-[46px]"
                         >
                             {

@@ -1,9 +1,9 @@
 // Production URL
-export const BASE_URL = 'http://api.demo3.xdomainhost.com';
+// export const BASE_URL = 'http://api.demo3.xdomainhost.com';
 
 
 // Development URL
-// export const BASE_URL = 'http://localhost:2000';
+export const BASE_URL = 'http://localhost:2000';
 
 export const userRegistration:string = 'user/create-user'
 export const userLogin:string = 'user/login-user'
