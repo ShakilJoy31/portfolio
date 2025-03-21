@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <Link href="/" className="flex items-center space-x-2 ml-2 md:ml-0">
                     <span className="self-center lg:text-[29px] text-[20px] font-semibold whitespace-nowrap dark:text-white">
                         {/* {headerSettings?.data?.siteTitle} */}
-                        Dorbesh
+                        Shakil
                     </span>
                 </Link>
 

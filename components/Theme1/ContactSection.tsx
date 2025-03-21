@@ -6,14 +6,14 @@ import { CiMail } from "react-icons/ci";
 import Heading from "../utility/Text/heading";
 import Paragraph from "../utility/Paragraph/Paragraph";
 import { useState } from "react";
-import { BASE_URL } from "@/constants/routeConstant";
-import { UserResponse } from "@/APIcalling/interface/user-information";
 
 const ContactSection = () => {
     const [clientName, setClientName] = useState('');
     const [clientEmail, setClientEmail] = useState('');
     const [clientMessage, setClientMessage] = useState('');
-    const [isLoading, setIsloading] = useState(false);
+    const [isLoading] = useState(false);
+
+    console.log(clientEmail, clientName, clientMessage);
 
     // const handleSendMessage = async () => {
     //     const clientPayload = {
