@@ -5,7 +5,7 @@ import Heading from "../utility/Text/heading";
 const LetsTalk = () => {
     return (
         <div className="py-12 max-w-screen-xl w-full">
-            <div className="bg-white rounded-xl px-8 py-10">
+            <div className="bg-[#363e61] rounded-xl px-8 py-10">
                 <div className="space-y-6 xl:px-36 lg:px-24 md:px-16 px-4">
                     <Heading className="xl:text-5xl lg:text-4xl text-3xl font-bold text-center mb-12">
                         Are You Ready to kickstart your project with a touch of magic?

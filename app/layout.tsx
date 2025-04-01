@@ -13,14 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[#ECF3F1] text-black px-2">
-        {/* <Navbar /> */}
+      <body className="bg-[#16192e] overflow-x-hidden">
         <NavbarServerComponent></NavbarServerComponent>
         {children}
-        <div className="flex justify-center py-8" id="footer">
-          <Footer />
-        </div>
-
+       <Footer></Footer>
       </body>
     </html>
   );
@@ -53,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: data?.setting?.client?.meta_description || "An advanced medical center equipped with international standard machinery, located near Dhaka in Savar",
       keywords: keywordsArray,
       icons: {
-        icon: data?.setting?.client?.favicon || "https://static.vecteezy.com/system/resources/thumbnails/036/324/708/small/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg",
+        icon: data?.setting?.client?.favicon || "https://i.ibb.co.com/Tqty4YKG/DSC-1902-3.jpg",
       },
     };
   } catch (error) {
@@ -62,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Shakil Portfolio",
       description: "An advanced medical center equipped with international standard machinery, located near Dhaka in Savar.",
       icons: {
-        icon: "https://static.vecteezy.com/system/resources/thumbnails/036/324/708/small/ai-generated-picture-of-a-tiger-walking-in-the-forest-photo.jpg",
+        icon: "https://i.ibb.co.com/Tqty4YKG/DSC-1902-3.jpg",
       },
     };
   }

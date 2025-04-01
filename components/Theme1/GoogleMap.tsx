@@ -37,7 +37,7 @@ const GoogleMap = () => {
 
             {/* Button to Show/Hide Map */}
             <div
-                className="bg-white h-[182px] hover:bg-black hover:text-white transition-all duration-300 hover:cursor-pointer mt-4"
+                className="bg-[#363e61] h-[182px] hover:bg-black hover:text-white transition-all duration-300 hover:cursor-pointer mt-4"
                 onClick={toggleMap}
             >
                 <div className="flex justify-center items-center h-[182px]">

@@ -129,13 +129,45 @@ body {
   animation: slide-up-fast 0.5s ease-in-out forwards;
 }
 
-.contact-input-field{
-  outline: none;
+
+
+
+
+
+@keyframes spin-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.contact-input-field:focus {
-  outline: none;
+.rotating-border-image {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 4px dashed white;
+  border-radius: 100%;
+  animation: spin-border 15s linear infinite;
+  padding: 2px; /* Matches your p-2 */
 }
+
+.rotating-border-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: cover;
+  /* Counter-rotation to keep image static */
+  animation: spin-border 15s linear infinite reverse;
+}
+
+
+
+
+
+
 
 
 
@@ -145,7 +177,7 @@ body {
 .marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: scroll-left 20s linear infinite;
+  animation: scroll-left 40s linear infinite;
 }
 
 @keyframes scroll-left {
