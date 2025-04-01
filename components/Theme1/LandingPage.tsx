@@ -7,7 +7,6 @@ import ServiceSection from "@/components/Theme1/ServiceSection";
 import EducationAndExperience from "@/components/Theme1/EducationAndExperience";
 import Skills from "@/components/Theme1/Skills";
 import Portfolio from "@/components/Theme1/Portfolio";
-import WorkingCompany from "@/components/Theme1/WorkingCompany";
 import ContactSection from "@/components/Theme1/ContactSection";
 import LetsTalk from "@/components/Theme1/LetsTalk";
 import GoogleMap from "@/components/Theme1/GoogleMap";

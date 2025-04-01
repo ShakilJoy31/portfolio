@@ -18,16 +18,6 @@ import logo12 from '../../assets/Logos/mongodb.jpg'
 import logo13 from '../../assets/Logos/stripe.jpg'
 import logo14 from '../../assets/Logos/typescript.jpg'
 
-
-interface Skill {
-    id: number;
-    proficiencyIn: string;
-    capability: number;
-    logo: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
 const Skills = () => {
     const skillsData = [
         {
