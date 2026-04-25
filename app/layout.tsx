@@ -1,7 +1,6 @@
 // layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import "aos/dist/aos.css";
 import NavbarServerComponent from "@/components/Theme1/NavberServerComponent";
 import Footer from "@/components/Theme1/Footer";
 // import Footer from "@/components/Footer";
@@ -17,7 +16,7 @@ export default function RootLayout({
         <NavbarServerComponent></NavbarServerComponent>
         {children}
        <Footer></Footer>
-      </body>
+      </body> 
     </html>
   );
 }
